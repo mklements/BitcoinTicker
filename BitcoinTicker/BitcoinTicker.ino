@@ -14,8 +14,8 @@
 #define downLED 12
 Adafruit_SSD1306 display (SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);    //Create the display object
 
-const char* ssid = "WiFi Name";                                               //Set your WiFi network name and password
-const char* password = "Password";
+const char* ssid = "Your_SSID";                                               //Set your WiFi network name and password
+const char* password = "Your_Password";
 
 const int httpsPort = 443;                                                    //Bitcoin price API powered by CoinGecko
 const String url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=USD&include_24hr_change=true";
@@ -26,6 +26,15 @@ HTTPClient http;
 String formattedDate;                                                         //Create variables to store the date and time
 String dayStamp;
 String timeStamp;
+
+// 'icons8-bitcoin-24', 24x24px
+const unsigned char bitcoinIcon [] PROGMEM = {
+0x00, 0x7e, 0x00, 0x03, 0xff, 0xc0, 0x07, 0x81, 0xe0, 0x0e, 0x00, 0x70, 0x18, 0x28, 0x18, 0x30,
+0x28, 0x0c, 0x70, 0xfc, 0x0e, 0x60, 0xfe, 0x06, 0x60, 0xc7, 0x06, 0xc0, 0xc3, 0x03, 0xc0, 0xc7,
+0x03, 0xc0, 0xfe, 0x03, 0xc0, 0xff, 0x03, 0xc0, 0xc3, 0x83, 0xc0, 0xc1, 0x83, 0x60, 0xc3, 0x86,
+0x60, 0xff, 0x06, 0x70, 0xfe, 0x0e, 0x30, 0x28, 0x0c, 0x18, 0x28, 0x18, 0x0e, 0x00, 0x70, 0x07,
+0x81, 0xe0, 0x03, 0xff, 0xc0, 0x00, 0x7e, 0x00
+};
 
 const unsigned char bitcoinLogo [] PROGMEM =                                  // 'Bitcoin Logo', 128x64px
 {
@@ -109,12 +118,6 @@ void setup()
   }
 
   display.clearDisplay();                                                     //Clear the display
-  display.setTextColor(SSD1306_WHITE);                                        //Set the text colour to white
-  display.drawBitmap(0, 0, bitcoinLogo, 128, 64, WHITE);                             //Display bitmap from array
-  display.display();
-  delay(2000);
-
-  display.clearDisplay();                                                     //Clear the display
   display.setTextSize(1);                                                     //Set display parameters
   display.setTextColor(WHITE);
   display.println("Connecting to WiFi...");
@@ -136,7 +139,16 @@ void setup()
   delay(1500);
   display.clearDisplay();
   display.display();
+
+  
+  display.clearDisplay();                                                     //Clear the display
+  display.setTextColor(SSD1306_WHITE);                                        //Set the text colour to white
+  display.drawBitmap(0, 0, bitcoinLogo, 128, 64, WHITE);                             //Display bitmap from array
+  display.display();
+  delay(2000);
+
 }
+
 
 void loop() 
 {
@@ -189,12 +201,16 @@ void loop()
   Serial.print("Percent Change: ");                                                     //Display the percentage change on the serial monitor
   Serial.println(USDChange);
 
-  display.clearDisplay();                                                               //Clear the OLED display
-  display.setTextSize(1);
-  printCenter("BTC/USD", 0, 0);                                                         //Display the comparison header
+  //display.clearDisplay();                                                               //Clear the OLED display
+  //display.setTextSize(1);
+  //printCenter("BTC/USD", 0, 0);                                                         //Display the comparison header
+
+  display.clearDisplay();
+  display.drawBitmap((128/2) - (24/2), 0, bitcoinIcon, 24, 24, WHITE);
+  display.display();
 
   display.setTextSize(2);
-  printCenter("$" + BTCUSDPrice, 0, 25);                                                //Display the current price
+  printCenter("$" + BTCUSDPrice, 0, 32);                                                //Display the current price
                                            
   display.setTextSize(1);                                                               //Display the change percentage
   dayChangeString = dayChangeString + USDChange + "%";
