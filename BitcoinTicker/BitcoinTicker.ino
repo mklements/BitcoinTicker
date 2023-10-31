@@ -10,8 +10,8 @@
 #define SCREEN_HEIGHT 64
 #define OLED_RESET     -1                                                     // Reset pin # (or -1 if sharing Arduino reset pin)
 #define SCREEN_ADDRESS 0x3C                                                   //I2C address for display
-#define upLED 13
-#define downLED 12
+#define upLED 19
+#define downLED 33
 Adafruit_SSD1306 display (SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);    //Create the display object
 
 const char* ssid = "Your_SSID";                                               //Set your WiFi network name and password
