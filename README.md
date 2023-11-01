@@ -2,7 +2,7 @@
 Arduino code for my ESP32 based Bitcoin price ticker
 
 # Connecting The Components On A Breadboard
-| ssd1306 | ESP32 |
+| SSD1306 | ESP32 |
 |-----|---|
 | GND | GND |
 | VCC | 3.3V |
