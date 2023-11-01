@@ -19,8 +19,9 @@ Arduino code for my ESP32 based Bitcoin price ticker
 - ArduinoJson.h [Here](https://arduinojson.org/?utm_source=meta&utm_medium=library.properties)
 
 # Schematic Diagram
-![image](https://github.com/farrasrayhand/BitcoinTicker/assets/35839373/9a5a2735-7245-44c7-91ee-733862b86137)<br>
-You can simulate [Here](https://wokwi.com/projects/380207235932160001)
+![image](https://github.com/farrasrayhand/BitcoinTicker/assets/35839373/9a5a2735-7245-44c7-91ee-733862b86137)
+
+You can simulate - [Here](https://wokwi.com/projects/380207235932160001)
 
 Source - https://www.the-diy-life.com/bitcoin-ticker-using-an-esp32-and-oled-display/
 
