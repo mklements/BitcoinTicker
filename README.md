@@ -1,7 +1,7 @@
 # BitcoinTicker
 Arduino code for my ESP32 based Bitcoin price ticker
 
-# Connecting The Components On A Breadboard
+### Connecting The Components On A Breadboard
 | SSD1306 | ESP32 |
 |-----|---|
 | GND | GND |
@@ -9,7 +9,7 @@ Arduino code for my ESP32 based Bitcoin price ticker
 | SLC | GPIO 22 |
 | SDA | GPIO 21 |
 
-# Library Used
+### Library Used
 - Adafruit_SSD1306.h [Here](https://github.com/adafruit/Adafruit_SSD1306)
 - WiFi.h
 - Wire.h
@@ -18,7 +18,7 @@ Arduino code for my ESP32 based Bitcoin price ticker
 - WiFiUdp.h
 - ArduinoJson.h [Here](https://arduinojson.org/?utm_source=meta&utm_medium=library.properties)
 
-# Schematic Diagram
+### Schematic Diagram
 ![image](https://github.com/farrasrayhand/BitcoinTicker/assets/35839373/9a5a2735-7245-44c7-91ee-733862b86137)
 
 You can simulate - [Here](https://wokwi.com/projects/380207235932160001)
